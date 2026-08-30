@@ -12,6 +12,8 @@
     --color-accent: #2d5a7b;
     --color-accent-light: #3a7ca5;
     --color-accent-glow: rgba(45, 90, 123, 0.15);
+    --color-accent-warm: #d68f3f;
+    --color-accent-warm-light: #e8ab66;
     --color-border: #e0e0e8;
     --color-hero-bg: #0f1624;
     --color-hero-text: #e8eaf0;
@@ -250,13 +252,13 @@ a:hover {
     overflow: hidden;
 }
 
-#network-canvas {
+#flow-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.4;
+    opacity: 0.55;
 }
 
 .hero-content {
@@ -291,7 +293,7 @@ a:hover {
 }
 
 .accent-dot {
-    color: var(--color-accent-light);
+    color: var(--color-accent-warm-light);
 }
 
 .hero-title {
@@ -401,15 +403,16 @@ a:hover {
 .person-card {
     background-color: var(--color-bg-alt);
     border: 1px solid var(--color-border);
-    border-radius: 12px;
+    border-radius: 4px;
     padding: 2rem;
     text-align: center;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
 .person-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
+    transform: translateY(-3px);
+    border-color: var(--color-accent-warm-light);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
 }
 
 .person-photo {
@@ -457,7 +460,7 @@ a:hover {
 .person-role {
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-accent-warm);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     margin-bottom: 1rem;
@@ -479,7 +482,7 @@ a:hover {
 
 .wip-highlight {
     background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
-    border-radius: 12px;
+    border-radius: 4px;
     padding: 2rem 2.5rem;
     color: #fff;
     position: relative;
@@ -500,11 +503,12 @@ a:hover {
 
 .wip-badge {
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--color-accent-warm);
+    color: #241505;
     padding: 0.25rem 0.75rem;
-    border-radius: 4px;
+    border-radius: 3px;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin-bottom: 1rem;
@@ -531,14 +535,15 @@ a:hover {
 .research-card {
     background-color: var(--color-bg);
     border: 1px solid var(--color-border);
-    border-radius: 12px;
+    border-radius: 4px;
     padding: 2rem;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
 .research-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
+    transform: translateY(-3px);
+    border-color: var(--color-accent-warm-light);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
 }
 
 .research-icon {
@@ -546,6 +551,11 @@ a:hover {
     height: 48px;
     color: var(--color-accent);
     margin-bottom: 1.25rem;
+    transition: color var(--transition-fast);
+}
+
+.research-card:hover .research-icon {
+    color: var(--color-accent-warm);
 }
 
 .research-card h3 {
@@ -643,7 +653,7 @@ a:hover {
 .teaching-category {
     background-color: var(--color-bg-alt);
     border: 1px solid var(--color-border);
-    border-radius: 12px;
+    border-radius: 4px;
     padding: 2rem;
 }
 
@@ -700,15 +710,15 @@ a:hover {
     text-align: center;
     padding: 2rem 1.5rem;
     border: 1px solid var(--color-border);
-    border-radius: 12px;
+    border-radius: 4px;
     background-color: var(--color-bg);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
 .contact-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
-    border-color: var(--color-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    border-color: var(--color-accent-warm-light);
     color: var(--color-text);
 }
 

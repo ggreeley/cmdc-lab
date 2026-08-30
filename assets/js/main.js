@@ -1,92 +1,63 @@
 /* ========================================
-   Network Canvas Animation
-   Draws an animated node-link network in
-   the hero — a nod to memory network research
+   Flow Canvas Animation
+   Layered, slowly drifting wave field in the
+   hero — a nod to cognition as continuous and
+   dynamic rather than a fixed structure
    ======================================== */
 (function () {
-    const canvas = document.getElementById('network-canvas');
+    const canvas = document.getElementById('flow-canvas');
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
-    let width, height, nodes, animationId;
-    const NODE_COUNT = 55;
-    const CONNECTION_DIST = 160;
-    const MOUSE_RADIUS = 200;
-    let mouse = { x: -9999, y: -9999 };
+    let width, height, animationId, t = 0;
+    let mouse = { x: -9999, y: -9999, active: false };
+
+    const LAYERS = [
+        { baseline: 0.62, amplitude: 34, frequency: 0.006, speed: 0.006, phase: 0, color: '58, 124, 165', alpha: 0.22 },
+        { baseline: 0.72, amplitude: 26, frequency: 0.009, speed: -0.009, phase: 2.1, color: '45, 90, 123', alpha: 0.20 },
+        { baseline: 0.82, amplitude: 20, frequency: 0.012, speed: 0.007, phase: 4.2, color: '214, 143, 63', alpha: 0.10 },
+    ];
 
     function resize() {
         width = canvas.width = canvas.offsetWidth;
         height = canvas.height = canvas.offsetHeight;
     }
 
-    function createNodes() {
-        nodes = [];
-        for (let i = 0; i < NODE_COUNT; i++) {
-            nodes.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 0.4,
-                vy: (Math.random() - 0.5) * 0.4,
-                radius: Math.random() * 2 + 1.5,
-            });
+    function waveY(layer, x) {
+        let y = layer.baseline * height + Math.sin(x * layer.frequency + t * layer.speed * 10 + layer.phase) * layer.amplitude;
+
+        if (mouse.active) {
+            const dx = x - mouse.x;
+            const bump = Math.exp(-(dx * dx) / (2 * 140 * 140));
+            const pull = (mouse.y - y) * 0.35;
+            y += pull * bump;
         }
+
+        return y;
     }
 
     function drawFrame() {
         ctx.clearRect(0, 0, width, height);
+        const step = 8;
 
-        // Update positions
-        for (const node of nodes) {
-            node.x += node.vx;
-            node.y += node.vy;
-
-            // Wrap around edges
-            if (node.x < -20) node.x = width + 20;
-            if (node.x > width + 20) node.x = -20;
-            if (node.y < -20) node.y = height + 20;
-            if (node.y > height + 20) node.y = -20;
-
-            // Subtle mouse attraction
-            const dx = mouse.x - node.x;
-            const dy = mouse.y - node.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < MOUSE_RADIUS && dist > 0) {
-                const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS * 0.008;
-                node.vx += dx * force;
-                node.vy += dy * force;
-            }
-
-            // Damping
-            node.vx *= 0.998;
-            node.vy *= 0.998;
-        }
-
-        // Draw edges
-        for (let i = 0; i < nodes.length; i++) {
-            for (let j = i + 1; j < nodes.length; j++) {
-                const dx = nodes[i].x - nodes[j].x;
-                const dy = nodes[i].y - nodes[j].y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < CONNECTION_DIST) {
-                    const alpha = (1 - dist / CONNECTION_DIST) * 0.35;
-                    ctx.beginPath();
-                    ctx.moveTo(nodes[i].x, nodes[i].y);
-                    ctx.lineTo(nodes[j].x, nodes[j].y);
-                    ctx.strokeStyle = `rgba(58, 124, 165, ${alpha})`;
-                    ctx.lineWidth = 0.8;
-                    ctx.stroke();
-                }
-            }
-        }
-
-        // Draw nodes
-        for (const node of nodes) {
+        for (const layer of LAYERS) {
             ctx.beginPath();
-            ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(58, 124, 165, 0.7)';
+            ctx.moveTo(0, waveY(layer, 0));
+            for (let x = step; x <= width; x += step) {
+                ctx.lineTo(x, waveY(layer, x));
+            }
+            ctx.lineTo(width, height);
+            ctx.lineTo(0, height);
+            ctx.closePath();
+
+            const gradient = ctx.createLinearGradient(0, layer.baseline * height - layer.amplitude, 0, height);
+            gradient.addColorStop(0, `rgba(${layer.color}, ${layer.alpha})`);
+            gradient.addColorStop(1, `rgba(${layer.color}, 0)`);
+            ctx.fillStyle = gradient;
             ctx.fill();
         }
 
+        t += 1;
         animationId = requestAnimationFrame(drawFrame);
     }
 
@@ -98,11 +69,11 @@
         const rect = canvas.getBoundingClientRect();
         mouse.x = e.clientX - rect.left;
         mouse.y = e.clientY - rect.top;
+        mouse.active = true;
     });
 
     canvas.addEventListener('mouseleave', () => {
-        mouse.x = -9999;
-        mouse.y = -9999;
+        mouse.active = false;
     });
 
     // Reduce animation when not visible
@@ -118,19 +89,9 @@
         { threshold: 0.1 }
     );
 
-    window.addEventListener('resize', () => {
-        resize();
-        if (nodes) {
-            // Keep existing nodes, just clamp positions
-            for (const node of nodes) {
-                node.x = Math.min(node.x, width);
-                node.y = Math.min(node.y, height);
-            }
-        }
-    });
+    window.addEventListener('resize', resize);
 
     resize();
-    createNodes();
     observer.observe(canvas);
     drawFrame();
 })();
