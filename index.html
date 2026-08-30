@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collective Memory and Dynamic Cognition Lab</title>
+    <meta name="description" content="Collective Memory and Dynamic Cognition Lab — research on collaborative memory, dynamic cognition, and misinformation, directed by Garrett D. Greeley, Ph.D.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">CMDC Lab</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#people" class="nav-link">People</a></li>
+                <li><a href="#research" class="nav-link">Research</a></li>
+                <li><a href="#teaching" class="nav-link">Teaching</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero / Home -->
+    <section id="home" class="hero">
+        <canvas id="network-canvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting reveal">Welcome to the</p>
+                <h1 class="hero-name reveal">Collective Memory &amp; Dynamic Cognition Lab<span class="accent-dot">.</span></h1>
+                <p class="hero-title reveal">Directed by Garrett D. Greeley, Ph.D.</p>
+                <p class="hero-tagline reveal">We study how memory operates in social and dynamic contexts — how people construct, share, and revise knowledge together, and how those processes unfold over time.</p>
+                <div class="hero-cta reveal">
+                    <a href="#research" class="btn btn-primary">Our Research</a>
+                    <a href="#people" class="btn btn-outline">Meet the Team</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About the Lab -->
+    <section class="section about-lab">
+        <div class="container">
+            <h2 class="section-title reveal">About the Lab</h2>
+            <p class="section-subtitle reveal" style="max-width: 760px;">The Collective Memory and Dynamic Cognition Lab investigates how remembering is shaped by social interaction and how it changes over time. We combine behavioral experiments with quantitative and computational methods to study collaborative recall, the spread and correction of misinformation, and how group interaction influences what individuals go on to learn and remember. Undergraduate research assistants are core members of the lab, contributing to every stage of the research process — from study design to data collection and analysis.</p>
+        </div>
+    </section>
+
+    <!-- People -->
+    <section id="people" class="section people">
+        <div class="container">
+            <h2 class="section-title reveal">People</h2>
+            <p class="section-subtitle reveal">The researchers behind the lab.</p>
+
+            <div class="people-grid">
+                <!-- PI -->
+                <div class="person-card reveal">
+                    <div class="person-photo">
+                        <img src="assets/img/people/greeley.jpg" alt="Garrett D. Greeley, Ph.D." onerror="this.parentElement.classList.add('no-photo')">
+                    </div>
+                    <h3 class="person-name">Garrett D. Greeley, Ph.D.</h3>
+                    <p class="person-role">Principal Investigator</p>
+                    <p class="person-bio">Garrett D. Greeley is a cognitive scientist studying how memory operates in social and dynamic contexts — how people construct, share, and revise knowledge together, and how those processes unfold over time. He directs the Collective Memory and Dynamic Cognition Lab, where he and his students investigate collaborative remembering, the spread and correction of misinformation, and how group interaction shapes individual learning. He holds a Ph.D. in Cognitive Science from Stony Brook University.</p>
+                </div>
+
+                <!-- RA -->
+                <div class="person-card reveal">
+                    <div class="person-photo">
+                        <img src="assets/img/people/ra-1.jpg" alt="Research Assistant" onerror="this.parentElement.classList.add('no-photo')">
+                    </div>
+                    <h3 class="person-name">[RA Name]</h3>
+                    <p class="person-role">Research Assistant</p>
+                    <p class="person-bio">[One or two sentences on this RA's background and role in the lab.]</p>
+                </div>
+
+                <!-- RA Volunteer -->
+                <div class="person-card reveal">
+                    <div class="person-photo">
+                        <img src="assets/img/people/ra-volunteer-1.jpg" alt="Research Assistant Volunteer" onerror="this.parentElement.classList.add('no-photo')">
+                    </div>
+                    <h3 class="person-name">[RA Volunteer Name]</h3>
+                    <p class="person-role">Research Assistant (Volunteer)</p>
+                    <p class="person-bio">[One or two sentences on this volunteer's background and role in the lab.]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research" class="section research">
+        <div class="container">
+            <h2 class="section-title reveal">Research</h2>
+            <p class="section-subtitle reveal">We study how memory is shaped by social interaction and how it changes across time — combining behavioral experiments with quantitative and computational methods.</p>
+
+            <div class="wip-highlight reveal">
+                <div class="wip-badge">Work in Progress</div>
+                <ul class="wip-list">
+                    <li>[Working title of current project 1] &mdash; brief description of the question and current stage.</li>
+                    <li>[Working title of current project 2] &mdash; brief description.</li>
+                    <li>[Working title of current project 3] &mdash; brief description.</li>
+                </ul>
+            </div>
+
+            <h3 class="research-subhead reveal">Themes</h3>
+            <div class="research-areas">
+                <div class="research-card reveal">
+                    <div class="research-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="20" r="8" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="16" cy="44" r="8" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="48" cy="44" r="8" stroke="currentColor" stroke-width="2"/>
+                            <line x1="28" y1="26" x2="20" y2="38" stroke="currentColor" stroke-width="2"/>
+                            <line x1="36" y1="26" x2="44" y2="38" stroke="currentColor" stroke-width="2"/>
+                            <line x1="24" y1="44" x2="40" y2="44" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Collaborative &amp; Collective Memory</h3>
+                    <p>How do groups remember together, and what emerges from that process &mdash; shared understanding, converging error, or both? We study how interaction shapes what individuals and groups come to know and recall.</p>
+                </div>
+                <div class="research-card reveal">
+                    <div class="research-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="6" fill="currentColor"/>
+                            <circle cx="32" cy="10" r="4" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="54" cy="44" r="4" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="10" cy="44" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M32 16 L32 26" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/>
+                            <path d="M50 41 L37 34" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/>
+                            <path d="M14 41 L27 34" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/>
+                        </svg>
+                    </div>
+                    <h3>Dynamic Cognition</h3>
+                    <p>Memory and cognition are not static snapshots; they shift with context, time, and social input. We examine how remembering, learning, and belief change unfold dynamically across repeated exposure and interaction.</p>
+                </div>
+                <div class="research-card reveal">
+                    <div class="research-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="12" y="12" width="40" height="40" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M22 32 L30 40 L42 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="22" y1="22" x2="42" y2="22" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                            <line x1="22" y1="42" x2="42" y2="42" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <h3>Misinformation &amp; Knowledge Integrity</h3>
+                    <p>How does false information take hold in individual and collective memory, and what conditions make groups more or less resistant to it? This work connects basic memory research to real-world questions about trust and shared knowledge.</p>
+                </div>
+            </div>
+
+            <h3 class="research-subhead reveal">Recent Publications</h3>
+            <p class="pub-note reveal">* indicates undergraduate co-author</p>
+            <div class="pub-list">
+                <div class="pub-item reveal">
+                    <span class="pub-year">2025</span>
+                    <div class="pub-content">
+                        <p class="pub-title">Downstream Consequences of Collaborative Recall: Testing the Influence on New Learning and Protection of Original Learning</p>
+                        <p class="pub-authors">Greeley, G. D. &amp; Rajaram, S.</p>
+                        <p class="pub-journal"><em>Memory &amp; Cognition</em></p>
+                        <a href="https://doi.org/10.3758/s13421-025-01730-z" class="pub-link" target="_blank" rel="noopener">DOI &rarr;</a>
+                    </div>
+                </div>
+                <div class="pub-item reveal">
+                    <span class="pub-year">2023</span>
+                    <div class="pub-content">
+                        <p class="pub-title">Collaborative Recall and the Construction of Collective Memory Organization: The Impact of Group Structure</p>
+                        <p class="pub-authors">Greeley, G. D., Chan, V., Choi, H-Y., &amp; Rajaram, S.</p>
+                        <p class="pub-journal"><em>Topics in Cognitive Science</em></p>
+                        <a href="https://doi.org/10.1111/tops.12639" class="pub-link" target="_blank" rel="noopener">DOI &rarr;</a>
+                    </div>
+                </div>
+                <div class="pub-item reveal">
+                    <span class="pub-year">2022</span>
+                    <div class="pub-content">
+                        <p class="pub-title">Social Remembering in the Digital Age: Implications for Virtual Study, Work, and Social Engagement</p>
+                        <p class="pub-authors">Greeley, G. D., Pe&ntilde;a, T., &amp; Rajaram, S.</p>
+                        <p class="pub-journal"><em>Memory, Mind &amp; Media</em></p>
+                        <a href="https://doi.org/10.1017/mem.2022.3" class="pub-link" target="_blank" rel="noopener">DOI &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching -->
+    <section id="teaching" class="section teaching">
+        <div class="container">
+            <h2 class="section-title reveal">Teaching</h2>
+            <p class="section-subtitle reveal">Courses taught by the lab's principal investigator.</p>
+
+            <div class="teaching-grid">
+                <div class="teaching-category reveal">
+                    <h3>Currently Teaching</h3>
+                    <ul class="course-list">
+                        <li>[Course name] &mdash; [Semester/Year]</li>
+                        <li>[Course name] &mdash; [Semester/Year]</li>
+                    </ul>
+                </div>
+                <div class="teaching-category reveal">
+                    <h3>Previously Taught</h3>
+                    <ul class="course-list">
+                        <li>Introduction to Psychology</li>
+                        <li>Statistics in Psychology</li>
+                        <li>Experimental Psychology / Research Methods (Lecture &amp; Lab)</li>
+                        <li>Introduction to Learning</li>
+                        <li>Cognitive Psychology</li>
+                        <li>Memory</li>
+                        <li>Psychology of Learning</li>
+                        <li>Computer Applications in Statistics (R Programming)</li>
+                        <li>Research and Writing for Psychology</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title reveal">Get in Touch</h2>
+            <p class="section-subtitle reveal">Interested in joining the lab, collaborating, or learning more about our work? Reach out.</p>
+            <div class="contact-links reveal">
+                <a href="mailto:dr.garrett.greeley@gmail.com" class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                    </div>
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">dr.garrett.greeley@gmail.com</span>
+                </a>
+                <a href="https://scholar.google.com/citations?user=g418Q0IAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener" class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                    </div>
+                    <span class="contact-label">Google Scholar</span>
+                    <span class="contact-value">Publication Profile</span>
+                </a>
+                <a href="https://garrettgreeleyphd.com/" target="_blank" rel="noopener" class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20 15.3 15.3 0 010-20z"/></svg>
+                    </div>
+                    <span class="contact-label">Personal Site</span>
+                    <span class="contact-value">garrettgreeleyphd.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Collective Memory and Dynamic Cognition Lab</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
