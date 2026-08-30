@@ -7,7 +7,7 @@ Single-page static site. No build step — plain HTML/CSS/JS.
 - `index.html` — the whole site
 - `assets/css/style.css`, `assets/js/main.js` — styles and behavior
 - `assets/img/people/` — headshots (referenced by filename in `index.html`)
-- `content/` — Markdown source for People, Research, and Teaching. Edit these
+- `content/` — Markdown source for People and Research. Edit these
   and ask Claude to sync the corresponding section of `index.html` to match
   (there's no runtime Markdown rendering, by design, to keep this static and
   dependency-free).

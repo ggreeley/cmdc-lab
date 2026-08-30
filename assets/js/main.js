@@ -23,14 +23,16 @@
         height = canvas.height = canvas.offsetHeight;
     }
 
+    const RIPPLE_RADIUS = 130;
+    const RIPPLE_HEIGHT = 22;
+
     function waveY(layer, x) {
         let y = layer.baseline * height + Math.sin(x * layer.frequency + t * layer.speed * 10 + layer.phase) * layer.amplitude;
 
         if (mouse.active) {
             const dx = x - mouse.x;
-            const bump = Math.exp(-(dx * dx) / (2 * 140 * 140));
-            const pull = (mouse.y - y) * 0.35;
-            y += pull * bump;
+            const bump = Math.exp(-(dx * dx) / (2 * RIPPLE_RADIUS * RIPPLE_RADIUS));
+            y -= RIPPLE_HEIGHT * bump;
         }
 
         return y;

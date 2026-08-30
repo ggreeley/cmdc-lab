@@ -638,59 +638,6 @@ a:hover {
 }
 
 /* ========================================
-   Teaching
-   ======================================== */
-.teaching {
-    background-color: var(--color-bg);
-}
-
-.teaching-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-.teaching-category {
-    background-color: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    padding: 2rem;
-}
-
-.teaching-category h3 {
-    font-size: 1.1rem;
-    font-weight: 650;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-}
-
-.course-list {
-    list-style: none;
-    padding: 0;
-}
-
-.course-list li {
-    padding: 0.4rem 0;
-    padding-left: 1.25rem;
-    position: relative;
-    font-size: 0.925rem;
-    color: var(--color-text-secondary);
-}
-
-.course-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--color-accent);
-    opacity: 0.5;
-    transform: translateY(-50%);
-}
-
-/* ========================================
    Contact
    ======================================== */
 .contact {
@@ -769,10 +716,6 @@ a:hover {
     }
 
     .research-areas {
-        grid-template-columns: 1fr;
-    }
-
-    .teaching-grid {
         grid-template-columns: 1fr;
     }
 
