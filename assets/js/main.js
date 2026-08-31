@@ -9,18 +9,29 @@
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
+    // width/height are CSS pixels (drawing logic below works in this space);
+    // the canvas's backing buffer is scaled separately for device pixel ratio.
     let width, height, animationId, t = 0;
     let mouse = { x: -9999, y: -9999, active: false };
 
     const LAYERS = [
-        { baseline: 0.62, amplitude: 34, frequency: 0.006, speed: 0.006, phase: 0, color: '58, 124, 165', alpha: 0.22 },
-        { baseline: 0.72, amplitude: 26, frequency: 0.009, speed: -0.009, phase: 2.1, color: '45, 90, 123', alpha: 0.20 },
-        { baseline: 0.82, amplitude: 20, frequency: 0.012, speed: 0.007, phase: 4.2, color: '214, 143, 63', alpha: 0.10 },
+        { baseline: 0.46, amplitude: 46, frequency: 0.0055, speed: 0.0025, phase: 0,   color: '58, 124, 165',  alpha: 0.16 },
+        { baseline: 0.58, amplitude: 34, frequency: 0.008,  speed: -0.0035, phase: 2.1, color: '45, 90, 123',   alpha: 0.18 },
+        { baseline: 0.70, amplitude: 30, frequency: 0.011,  speed: 0.0045,  phase: 3.4, color: '214, 143, 63',  alpha: 0.15 },
+        { baseline: 0.82, amplitude: 20, frequency: 0.007,  speed: -0.003, phase: 5.0, color: '232, 171, 102', alpha: 0.10 },
     ];
 
+    // Resize using the canvas's own box (ResizeObserver fires immediately on
+    // observe and on any later layout change — more reliable than a window
+    // 'resize' listener, which misses font-swap reflows and DPR changes).
     function resize() {
-        width = canvas.width = canvas.offsetWidth;
-        height = canvas.height = canvas.offsetHeight;
+        const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        width = rect.width;
+        height = rect.height;
+        canvas.width = Math.round(width * dpr);
+        canvas.height = Math.round(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
     const RIPPLE_RADIUS = 130;
@@ -79,7 +90,7 @@
     });
 
     // Reduce animation when not visible
-    const observer = new IntersectionObserver(
+    const visibilityObserver = new IntersectionObserver(
         ([entry]) => {
             if (entry.isIntersecting) {
                 if (!animationId) drawFrame();
@@ -91,10 +102,11 @@
         { threshold: 0.1 }
     );
 
-    window.addEventListener('resize', resize);
+    const resizeObserver = new ResizeObserver(resize);
 
     resize();
-    observer.observe(canvas);
+    visibilityObserver.observe(canvas);
+    resizeObserver.observe(canvas);
     drawFrame();
 })();
 
