@@ -411,7 +411,8 @@ a:hover {
 
 .person-card:hover {
     transform: translateY(-3px);
-    border-color: var(--color-accent-warm-light);
+    border-width: 2px;
+    border-color: var(--color-accent-warm);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -520,10 +521,24 @@ a:hover {
 }
 
 .wip-list li {
-    padding: 0.4rem 0;
+    padding: 0.65rem 0;
     font-size: 0.95rem;
     opacity: 0.95;
     line-height: 1.6;
+}
+
+.wip-list li + li {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.wip-phase {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.75;
 }
 
 .research-areas {
@@ -542,7 +557,8 @@ a:hover {
 
 .research-card:hover {
     transform: translateY(-3px);
-    border-color: var(--color-accent-warm-light);
+    border-width: 2px;
+    border-color: var(--color-accent-warm);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
 }
 
