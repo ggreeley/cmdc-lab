@@ -1,6 +1,6 @@
 ---
 name: Garrett D. Greeley, Ph.D.
-role: Principal Investigator
+role: Director
 order: 1
 photo: assets/img/people/greeley.jpg
 ---
